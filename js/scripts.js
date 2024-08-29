@@ -2,6 +2,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            //creo il mio array di oggetti, in questo caso 5 immagini con le loro titoli e descrizioni
             slides: [
                 {
                     image: 'img/01.webp',
@@ -30,6 +31,7 @@ createApp({
 
     },
     methods: {
+        //creo una funzione per il bottone slide successiva
         nextSlide() {
             for (let i = 0; i < this.slides.length; i++) {
                 if (this.slideAttiva === i) {
@@ -40,10 +42,11 @@ createApp({
                         // Altrimenti passiamo alla slide successiva
                         this.slideAttiva++;
                     }
-                   
+                   break
                 }
             }
         },
+        //creo una funzione per il bottone slide precedente 
         prevSlide() {
             for (let i = 0; i < this.slides.length; i++) {
                 if (this.slideAttiva === i) {
@@ -54,7 +57,7 @@ createApp({
                         // Altrimenti passiamo alla slide precedente
                         this.slideAttiva--;
                     }
-                    
+                    break
                 }
             }
         }

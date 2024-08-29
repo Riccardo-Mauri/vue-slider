@@ -5,12 +5,15 @@
 }
 
 .container {
-    --height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+.flex-container{
+    display:flex;
+    justify-content: center;
+}
 .item {
     float: left;
     width: 700px;
@@ -71,13 +74,8 @@
     bottom: 0;
 }
 
-/*
-EXTRA: in questo esempio gli accordion vengono creati
-usando 2 bordi di un quadratino ruotato di 45 gradi
-In una versione base si possono usare delle icone
-oppure i caratteri ∧ (&and;) e ∨ (&or;)
- */
-.prev::after {
+
+button.prev::after, button.next::after {
     content: '';
     width: 10px;
     height: 10px;
@@ -85,20 +83,15 @@ oppure i caratteri ∧ (&and;) e ∨ (&or;)
     border-right: 1px solid black;
     display: block;
     position: absolute;
-    top: 35%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%) rotate(-45deg);
+    transform: translate(-50%, -50%);
 }
 
-.next::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    display: block;
-    position: absolute;
-    bottom: 35%;
-    left: 50%;
-    transform: translate(-50%) rotate(135deg);
+button.prev::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+button.next::after {
+    transform: translate(-50%, -50%) rotate(135deg);
 }
